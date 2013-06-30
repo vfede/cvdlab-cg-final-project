@@ -82,6 +82,54 @@ She had a modest style, Vogue has her saying "advice to whoever asks me how to m
 
 <p>Quadrifoglio is a variation of the more famous "Pipistrello" table lamp of Gae Aulenti. It is composed by four slices of plastic supported by four steel tubes standing on a circular steel base.</p>
 
+<h2>
+<a name="decomposition" class="anchor" href="#decomposition"><span class="octicon octicon-link"></span></a>Decomposition</h2>
+
+<p>The 3D reconstruction of Quadrifoglio lamp is composed by:</p>
+
+<ul>
+<li>shade</li>
+<li>circular base</li>
+<li>supporting tubes</li>
+<li>light bulb</li>
+<li>bolts</li>
+</ul><h3>
+<a name="the-rotational-symmetry" class="anchor" href="#the-rotational-symmetry"><span class="octicon octicon-link"></span></a>The rotational symmetry</h3>
+
+<p>Each one of these elements was conceived to be a quarter of the complete object, to leverage the rotational symmetry of the lamp along the Z-axis. To obtain a complete lamp I should onlu change the "copies" parameter of the REPLICA function.
+<img src="https://github.com/vfede/cvdlab-cg-final-project/raw/master/table%20lamp%20Quadrifoglio/renders/Quadrifoglio%20plasmJS%20(1" alt="rotational symmetry image">.png)</p>
+
+<pre><code>//with copies = 4 this code construct the lamp
+rotationalGroup = STRUCT(REPLICA(copies)([ disk, topDisk, pillarAngles, pillarArm, foot, COMP([lampR])]));
+</code></pre>
+
+<h3>
+<a name="the-shade" class="anchor" href="#the-shade"><span class="octicon octicon-link"></span></a>The shade</h3>
+
+<p>The shade was the most interesting part to model. I imagined a quarter of the shade to be a deformed sphere, so I used the SPHERE function as a base and modified to transform the output on the three axis. With a proper domain I could strip down the unnecessary parts and obtain the desired slice of the shade.
+<img src="https://github.com/vfede/cvdlab-cg-final-project/raw/master/table%20lamp%20Quadrifoglio/renders/Quadrifoglio%20plasmJS%20(0" alt="rotational symmetry image">.png)</p>
+
+<pre><code>//this function is based on a SPHERE function but with different coefficients
+lampQuarterFunc = function (arg){
+    var a = arg[0];
+    var b = arg[1] + PI/2.0;
+    var u = SIN(a) * (COS(b) +1) * 0.9;
+    var v = (SIN(a)+0.25) * SIN(b);
+    var w = COS(a);
+    return [u,v,w];
+};
+</code></pre>
+
+<p><img src="https://github.com/vfede/cvdlab-cg-final-project/raw/master/table%20lamp%20Quadrifoglio/renders/Quadrifoglio%20plasmJS%20(2" alt="rotational symmetry image">.png)
+<img src="https://github.com/vfede/cvdlab-cg-final-project/raw/master/table%20lamp%20Quadrifoglio/renders/Quadrifoglio%20plasmJS%20(3" alt="rotational symmetry image">.png)
+<img src="https://github.com/vfede/cvdlab-cg-final-project/raw/master/table%20lamp%20Quadrifoglio/renders/Quadrifoglio%20plasmJS%20(4" alt="rotational symmetry image">.png)
+<img src="https://github.com/vfede/cvdlab-cg-final-project/raw/master/table%20lamp%20Quadrifoglio/renders/Quadrifoglio%20plasmJS%20(5" alt="rotational symmetry image">.png)
+<img src="https://github.com/vfede/cvdlab-cg-final-project/raw/master/table%20lamp%20Quadrifoglio/renders/Quadrifoglio%20plasmJS%20(6" alt="rotational symmetry image">.png)</p>
+
+<p>The same model was made Python-compatible with few code adaptations. Because the different implementations of the ROTATE and TRANSLATE functions between Pyplams and plasm.js, the model is not perfectly the. It could be fixed easily though:
+<img src="https://github.com/vfede/cvdlab-cg-final-project/raw/master/table%20lamp%20Quadrifoglio/renders/Quadrifoglio%20pyplasm%20(1" alt="rotational symmetry image">.png)
+<img src="https://github.com/vfede/cvdlab-cg-final-project/raw/master/table%20lamp%20Quadrifoglio/renders/Quadrifoglio%20pyplasm%20(2" alt="rotational symmetry image">.png)</p>
+
 <h1>
 <a name="the-rocking-chair-sgarsulv" class="anchor" href="#the-rocking-chair-sgarsulv"><span class="octicon octicon-link"></span></a>The rocking chair: <em>Sgarsulv</em>
 </h1>

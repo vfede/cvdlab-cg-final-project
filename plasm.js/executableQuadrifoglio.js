@@ -82,7 +82,7 @@ radius = 0.05;
 baseDiameter = 1;
 lowDom = 12;
 dom = 32;
-copies = 1;
+copies = 4;
 
 lampR = R([0,1])(PI/2.0);
 lampT = T([0,1])([0.2,0.2]);

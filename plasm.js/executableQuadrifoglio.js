@@ -114,7 +114,7 @@ disk = T([2])([-pillarH-1.15])(disk);
 lampDomain = DOMAIN([[0,0.625*PI],[PI+0.15,2*PI-0.15]])([dom,dom]);
 lampQuarter = MAP(lampQuarterFunc)(lampDomain);
 lampQuarter = COLOR255(glassColor)( S([2])([1.1])(lampQuarter));
- 
+
 lampGlass = T([0])([0.2])(STRUCT(REPLICA(copies)([ lampQuarter, COMP([lampR,lampT])])));
 pillars =  T([0])([0.1])(STRUCT(REPLICA(copies)([pillar, COMP([lampR, lampT2])])));
 
@@ -144,4 +144,4 @@ lightBulb = T([2])([-0.3])(Sk(0.1)(STRUCT([bulbSocket , bulb])));
 
 model = STRUCT([lampGlass, pillars, rotationalGroup, trunk, bolts, sphere1, sphere2, lightBulb]);
 DRAW(model);
-}
+});

@@ -297,4 +297,4 @@ planks = COLOR([1,0,0])(STRUCT([backLeft, leg, footEnd, rightPLanks, footBar, fo
 armchair = T([x,y,z])([-1,2,-4])(R([y,z])(PI*0.5)(STRUCT([seat, planks])));
 
 DRAW(armchair);
-}
+});

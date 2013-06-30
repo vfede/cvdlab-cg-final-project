@@ -92,12 +92,13 @@ She had a modest style, Vogue has her saying "advice to whoever asks me how to m
 <li>circular base</li>
 <li>supporting tubes</li>
 <li>light bulb</li>
-<li>bolts
-To reproduce these shapes were used custom functions for spheres, disks, toruses and rotational surfaces.</li>
-</ul><h3>
+<li>bolts</li>
+</ul><p>To reproduce these shapes were used <strong>custom functions for spheres, disks, toruses, cylinders and rotational surfaces</strong>.</p>
+
+<h3>
 <a name="the-rotational-symmetry" class="anchor" href="#the-rotational-symmetry"><span class="octicon octicon-link"></span></a>The rotational symmetry</h3>
 
-<p>Each one of these elements was conceived to be a quarter of the complete object, to leverage the rotational symmetry of the lamp around the Z-axis. To obtain a complete lamp I should onlu change the "copies" parameter of the REPLICA function.
+<p>Each one of these elements was conceived to be a quarter of the complete object, to leverage the rotational symmetry of the lamp around the Z-axis. To obtain a complete lamp I should only change the "copies" parameter of the REPLICA function.
 <img src="https://raw.github.com/vfede/cvdlab-cg-final-project/master/table%20lamp%20Quadrifoglio/renders/Quadrifoglio%20plasmJS%20%281%29.png" alt="rotational symmetry image"></p>
 
 <pre><code>//with copies = 4 this code construct the lamp
@@ -121,15 +122,18 @@ lampQuarterFunc = function (arg){
 };
 </code></pre>
 
-<h3>
-<a name="images-gallery" class="anchor" href="#images-gallery"><span class="octicon octicon-link"></span></a>Images gallery</h3>
+<h2>
+<a name="renderings-gallery" class="anchor" href="#renderings-gallery"><span class="octicon octicon-link"></span></a>Renderings gallery</h2>
 
 <p><img src="https://raw.github.com/vfede/cvdlab-cg-final-project/master/table%20lamp%20Quadrifoglio/renders/Quadrifoglio%20plasmJS%20%282%29.png" alt="quadrifoglio image"><img src="https://raw.github.com/vfede/cvdlab-cg-final-project/master/table%20lamp%20Quadrifoglio/renders/Quadrifoglio%20plasmJS%20%283%29.png" alt="quadrifoglio image"><img src="https://raw.github.com/vfede/cvdlab-cg-final-project/master/table%20lamp%20Quadrifoglio/renders/Quadrifoglio%20plasmJS%20%284%29.png" alt="quadrifoglio image"><img src="https://raw.github.com/vfede/cvdlab-cg-final-project/master/table%20lamp%20Quadrifoglio/renders/Quadrifoglio%20plasmJS%20%285%29.png" alt="quadrifoglio image"><img src="https://raw.github.com/vfede/cvdlab-cg-final-project/master/table%20lamp%20Quadrifoglio/renders/Quadrifoglio%20plasmJS%20%286%29.png" alt="quadrifoglio image"></p>
 
-<p>The same model was made Python-compatible with few code adaptations. Because the different implementations of the ROTATE and TRANSLATE functions between Pyplams and plasm.js, the model is not perfectly the. It could be fixed easily though:
+<h3>
+<a name="quadrifoglio---pyplasm-version" class="anchor" href="#quadrifoglio---pyplasm-version"><span class="octicon octicon-link"></span></a>Quadrifoglio - Pyplasm version</h3>
+
+<p>The same model was made Python-compatible with few code adaptations. Because the different implementations of the ROTATE and TRANSLATE functions between Pyplams and plasm.js, the model is not perfectly the same. It could be fixed easily though.
 <img src="https://raw.github.com/vfede/cvdlab-cg-final-project/master/table%20lamp%20Quadrifoglio/renders/Quadrifoglio%20pyplasm%20%281%29.png" alt="pyplasm image"><img src="https://raw.github.com/vfede/cvdlab-cg-final-project/master/table%20lamp%20Quadrifoglio/renders/Quadrifoglio%20pyplasm%20%282%29.png" alt="pyplasm image"></p>
 
-<h1>
+<hr><h1>
 <a name="the-rocking-chair-sgarsulv" class="anchor" href="#the-rocking-chair-sgarsulv"><span class="octicon octicon-link"></span></a>The rocking chair: <em>Sgarsulv</em>
 </h1>
 
@@ -155,16 +159,56 @@ Sgarsulv is made of a wood curved structure enhanced by a soft padding covered i
 <h2>
 <a name="decomposition-1" class="anchor" href="#decomposition-1"><span class="octicon octicon-link"></span></a>Decomposition</h2>
 
-<p>The 3D reconstruction of Quadrifoglio lamp is composed by:</p>
+<p>The 3D reconstruction of Sgarsulvlamp is composed by two main parts:</p>
 
 <ul>
-<li>shade</li>
-<li>circular base</li>
-<li>supporting tubes</li>
-<li>light bulb</li>
-<li>bolts
-To reproduce these shapes were used custom functions for spheres, disks, toruses and rotational surfaces.</li>
+<li>curved wood structure</li>
+<li>leather seat with pillows and paddings</li>
 </ul><h3>
+<a name="the-wood-structure" class="anchor" href="#the-wood-structure"><span class="octicon octicon-link"></span></a>The wood structure</h3>
+
+<p>The wood structure itself is made of three main compounds:</p>
+
+<ul>
+<li>wood structure on the ground</li>
+<li>wood structure of the seatback</li>
+<li>wood planks refinements</li>
+</ul><p>To reproduce these shapes were used <strong>Bézier curves, a custom function for surfaces between Bézier curves, cuboids</strong>.</p>
+
+<p>The supporting structure of Sgarsulv is perfect to be modeled by Bézier curves. With Bézier curves it is possible to have convoluted curves that slightly differ from one to another. To scale the curves I wrote a custom function that transform every control point of these specific curves.
+<img src="https://raw.github.com/vfede/cvdlab-cg-final-project/master/armchair%20Sgarsulv/renders/Sgarsulv%20plasmJS%20%281%29.png" alt="Sgarsulv Bézier curves"></p>
+
+<p>Then I coded a function that builds the interpolating surface between Bézier curves, to make the solid model of the wood structure. Some cuboid were applied to refine the model.
+<img src="https://raw.github.com/vfede/cvdlab-cg-final-project/master/armchair%20Sgarsulv/renders/Sgarsulv%20plasmJS%20%283%29.png" alt="Sgarsulv wood"></p>
+
+<h3>
+<a name="the-leather-seat" class="anchor" href="#the-leather-seat"><span class="octicon octicon-link"></span></a>The leather seat</h3>
+
+<p>The leather seat itself is made of four main parts:</p>
+
+<ul>
+<li>thin leather seat with red seams</li>
+<li>two tubular curved paddings</li>
+<li>head pillow</li>
+<li>cylindrical pillow</li>
+</ul><p>To reproduce these shapes were used <strong>Bézier curves, a custom function for surfaces between Bézier curves, cylinders, half toruses, profile-product surfaces</strong>.</p>
+
+<p>The most difficult part of the seat was the two symmetrical paddings. They are builded from two Bézier curves: one for the curved profile and one closed curve for the section. They are connected by the thin leather seat with the visibles red seams, modeled by other two Bézier curves not in the same plane as the paddings to reproduce the depth of the seat.
+<img src="https://raw.github.com/vfede/cvdlab-cg-final-project/master/armchair%20Sgarsulv/renders/Sgarsulv%20plasmJS%20%282%29.png" alt="Sgarsulv seat"></p>
+
+<h2>
+<a name="renderings-gallery-1" class="anchor" href="#renderings-gallery-1"><span class="octicon octicon-link"></span></a>Renderings gallery</h2>
+
+<p><img src="https://raw.github.com/vfede/cvdlab-cg-final-project/master/armchair%20Sgarsulv/renders/Sgarsulv%20plasmJS%20%284%29.png" alt="Sgarsulv image"><img src="https://raw.github.com/vfede/cvdlab-cg-final-project/master/armchair%20Sgarsulv/renders/Sgarsulv%20plasmJS%20%285%29.png" alt="Sgarsulv image"><img src="https://raw.github.com/vfede/cvdlab-cg-final-project/master/armchair%20Sgarsulv/renders/Sgarsulv%20plasmJS%20%286%29.png" alt="Sgarsulv image"><img src="https://raw.github.com/vfede/cvdlab-cg-final-project/master/armchair%20Sgarsulv/renders/Sgarsulv%20plasmJS%20%287%29.png" alt="Sgarsulv image"></p>
+
+<h3>
+<a name="sgarsulv---pyplasm-version" class="anchor" href="#sgarsulv---pyplasm-version"><span class="octicon octicon-link"></span></a>Sgarsulv - Pyplasm version</h3>
+
+<p>The same model was made Python-compatible with few code adaptations. Because the different implementations of the ROTATE and TRANSLATE functions between Pyplams and plasm.js, the model is not perfectly the same. It could be fixed easily though.
+In these renderings it could be noticed the exploded diagram of the seat components.
+<img src="https://raw.github.com/vfede/cvdlab-cg-final-project/master/armchair%20Sgarsulv/renders/Sgarsulv%20pyplasm%20%281%29.png" alt="Sgarsulv pyplasm"><img src="https://raw.github.com/vfede/cvdlab-cg-final-project/master/armchair%20Sgarsulv/renders/Sgarsulv%20pyplasm%20%282%29.png" alt="Sgarsulv pyplasm"><img src="https://raw.github.com/vfede/cvdlab-cg-final-project/master/armchair%20Sgarsulv/renders/Sgarsulv%20pyplasm%20%283%29.png" alt="Sgarsulv pyplasm"></p>
+
+<h3>
 <a name="the-coffe-table-jumbo" class="anchor" href="#the-coffe-table-jumbo"><span class="octicon octicon-link"></span></a>The coffe table: Jumbo</h3>
 
 <pre><code>$ cd your_repo_root/repo_name

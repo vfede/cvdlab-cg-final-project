@@ -41,7 +41,7 @@
 <li>The table lamp: Quadrifoglio</li>
 <li>The rocking chair: Sgarsulv</li>
 <li>The coffe table: Jumbo</li>
-</ul><h1>
+</ul><hr><h1>
 <a name="the-architect" class="anchor" href="#the-architect"><span class="octicon octicon-link"></span></a>The Architect</h1>
 
 <h2>
@@ -61,7 +61,7 @@ In addition to her striking "Arrivo al Mare" installation in the Italian Pavilio
 <p>Aulenti was one of the few women designing in the postwar period in Italy while creating many elegant pieces that spanned across a wide variety of styles and influences, with a focus on modern, radical design. She did however always want the focus of the room to be the occupants, she believed the people make the room a room and to not overpower.
 She had a modest style, Vogue has her saying "advice to whoever asks me how to make a home is to not have anything, just a few shelves for books, some pillows to sit on. And then, to take a stand against the ephemeral, against passing trends...and to return to lasting values."</p>
 
-<h1>
+<hr><h1>
 <a name="the-table-lamp-quadrifoglio" class="anchor" href="#the-table-lamp-quadrifoglio"><span class="octicon octicon-link"></span></a>The table lamp: <em>Quadrifoglio</em>
 </h1>
 
@@ -193,8 +193,15 @@ Sgarsulv is made of a wood curved structure enhanced by a soft padding covered i
 <li>cylindrical pillow</li>
 </ul><p>To reproduce these shapes were used <strong>Bézier curves, a custom function for surfaces between Bézier curves, cylinders, half toruses, profile-product surfaces</strong>.</p>
 
-<p>The most difficult part of the seat was the two symmetrical paddings. They are builded from two Bézier curves: one for the curved profile and one closed curve for the section. They are connected by the thin leather seat with the visibles red seams, modeled by other two Bézier curves not in the same plane as the paddings to reproduce the depth of the seat.
-<img src="https://raw.github.com/vfede/cvdlab-cg-final-project/master/armchair%20Sgarsulv/renders/Sgarsulv%20plasmJS%20%282%29.png" alt="Sgarsulv seat"></p>
+<p>The most difficult part of the seat was the two symmetrical paddings. They are builded from two Bézier curves: one for the curved profile and one closed curve for the section. They are connected by the thin leather seat with the visibles red seams, modeled by other two Bézier curves not in the same plane as the paddings to reproduce the depth of the seat.</p>
+
+<pre><code>//seat tubular right padding
+seatPaddingProfile = BEZIER(S0)([[1, 0, 0], [0.87, 0, 0], [0.12, 0, 0.77], [0.61, 0, 1.62]]);
+seatPaddingSection = BEZIER(S1)([[0.51, 0.83], [0.19, 1.22], [0.19, 0.45], [0.51 , 0.83]]);
+paddingTube = MAP(PROFILEPROD_SURFACE([seatPaddingProfile, seatPaddingSection]))(dom2D);
+</code></pre>
+
+<p><img src="https://raw.github.com/vfede/cvdlab-cg-final-project/master/armchair%20Sgarsulv/renders/Sgarsulv%20plasmJS%20%282%29.png" alt="Sgarsulv seat"></p>
 
 <h2>
 <a name="renderings-gallery-1" class="anchor" href="#renderings-gallery-1"><span class="octicon octicon-link"></span></a>Renderings gallery</h2>
@@ -208,13 +215,55 @@ Sgarsulv is made of a wood curved structure enhanced by a soft padding covered i
 In these renderings it could be noticed the exploded diagram of the seat components.
 <img src="https://raw.github.com/vfede/cvdlab-cg-final-project/master/armchair%20Sgarsulv/renders/Sgarsulv%20pyplasm%20%281%29.png" alt="Sgarsulv pyplasm"><img src="https://raw.github.com/vfede/cvdlab-cg-final-project/master/armchair%20Sgarsulv/renders/Sgarsulv%20pyplasm%20%282%29.png" alt="Sgarsulv pyplasm"><img src="https://raw.github.com/vfede/cvdlab-cg-final-project/master/armchair%20Sgarsulv/renders/Sgarsulv%20pyplasm%20%283%29.png" alt="Sgarsulv pyplasm"></p>
 
-<h3>
-<a name="the-coffe-table-jumbo" class="anchor" href="#the-coffe-table-jumbo"><span class="octicon octicon-link"></span></a>The coffe table: Jumbo</h3>
+<hr><h1>
+<a name="the-coffe-table-jumbo" class="anchor" href="#the-coffe-table-jumbo"><span class="octicon octicon-link"></span></a>The coffe table: <em>Jumbo</em>
+</h1>
 
-<pre><code>$ cd your_repo_root/repo_name
-$ git fetch origin
-$ git checkout gh-pages
+<p><img src="https://raw.github.com/vfede/cvdlab-cg-final-project/master/coffe%20table%20Jumbo/coffe%20table%20Jumbo%20reference%20%282%29.jpg" alt="Jumbo image"></p>
+
+<h2>
+<a name="specifications-2" class="anchor" href="#specifications-2"><span class="octicon octicon-link"></span></a>Specifications</h2>
+
+<ul>
+<li>Infos: Gae Aulenti coffe table "Jumbo" for Knoll, Italy, 1965.</li>
+<li>Composition: marble plate on four marble pillars.</li>
+<li>Eras: 1900s / 20th century</li>
+<li>Styles: Italian, '60s style</li>
+<li>Materials: stoneware</li>
+<li>Measurements: 111 x 111 x 36 cm (DxWxH)</li>
+</ul><h2>
+<a name="description-2" class="anchor" href="#description-2"><span class="octicon octicon-link"></span></a>Description</h2>
+
+<p>This classic low table made of marble combine its refined shapes with the strength of the material. It is the ideal for residential places and for offices and lounges too. It is made entirely of marble and rest on a pair of legs for each corner. To protect the marble it is applied a transparent finishing in polyester. It is produced with various marble, such as Carrara white, Calacatta white, Marquina black and others red marbles.
+The table weights 200kg.</p>
+
+<p><img src="https://raw.github.com/vfede/cvdlab-cg-final-project/master/coffe%20table%20Jumbo/coffe%20table%20Jumbo%20reference%20%281%29.jpg" alt="Jumbo corner image"></p>
+
+<h2>
+<a name="decomposition-2" class="anchor" href="#decomposition-2"><span class="octicon octicon-link"></span></a>Decomposition</h2>
+
+<p>The 3D reconstruction of Jumbo is composed by three main parts:</p>
+
+<ul>
+<li>table plan</li>
+<li>legs</li>
+<li>marble vains</li>
+</ul><p>The table plan and legs are simpy reporduced as cuboids and cylinders.
+The most challenging part was the recreations of the marble vains. I used the concepts introduced in HW3 to reproduce a spiked surface. Combining this with the flat table plan, I simulated the vains of the marble.</p>
+
+<pre><code>//function to randomize the heights of a plane given a 2d domain
+function randomPattern(dom2d){
+    dom2d[z]=Math.floor((Math.random()*3)+1);
+    return dom2d;
+}
 </code></pre>
+
+<p><img src="https://raw.github.com/vfede/cvdlab-cg-final-project/master/coffe%20table%20Jumbo/renders/coffe%20table%20Jumbo%20plasmJS%20%284%29.png" alt="Jumbo image"></p>
+
+<h2>
+<a name="renderings-gallery-2" class="anchor" href="#renderings-gallery-2"><span class="octicon octicon-link"></span></a>Renderings gallery</h2>
+
+<p><img src="https://raw.github.com/vfede/cvdlab-cg-final-project/master/coffe%20table%20Jumbo/renders/coffe%20table%20Jumbo%20plasmJS%20%283%29.png" alt="Jumbo image"><img src="https://raw.github.com/vfede/cvdlab-cg-final-project/master/coffe%20table%20Jumbo/renders/coffe%20table%20Jumbo%20plasmJS%20%281%29.png" alt="Jumbo image"><img src="https://raw.github.com/vfede/cvdlab-cg-final-project/master/coffe%20table%20Jumbo/renders/coffe%20table%20Jumbo%20plasmJS%20%282%29.png" alt="Jumbo image"></p>
         </section>
 
         <aside id="sidebar">

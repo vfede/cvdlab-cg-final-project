@@ -74,4 +74,4 @@ table = R([x,y])(PI/4.0)( T([x,y])([-3,-3])(EXTRUDE([-0.853, 0.197])(CUBOID([6,6
 
 model = COLOR(white)(STRUCT([table, legs]));
 DRAW(model);
-}
+});
